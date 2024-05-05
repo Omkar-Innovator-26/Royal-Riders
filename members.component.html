@@ -1,0 +1,12 @@
+<div class="container">
+    <h2>Member List</h2>
+    <div class="card-container">
+        <div class="card" *ngFor="let member of lstofMember">
+            <img [src]="member.profilepicture" alt="">
+            <div class="card-body">
+                    <h3>{{member.Username}}</h3>
+                    <h3>{{member.Bio}}</h3>
+            </div>
+        </div>
+    </div>
+</div>

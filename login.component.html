@@ -1,0 +1,24 @@
+<div class="container">
+    <h2>Login</h2>
+    <form (ngSubmit)="handleLogin()" [formGroup]="LoginForm">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="Enter your Username" formControlName="username">
+            <span *ngIf="methodOfUsername.errors?.required" class="error-message">Please enter Username</span>
+        </div>
+
+        <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your Password" formControlName="password">
+                <span class="error-message" *ngIf="methodOfpassword.errors?.required">Please enter Password</span>
+        </div>
+
+        <div class="form-group">
+            <input type="checkbox" id="terms" name="terms" formControlName="terms">
+            <label for="terms">I accept the terms and conditions</label>
+            <span class="error-message" *ngIf="LoginForm.get('terms')?.invalid && LoginForm.get('terms')?.touched">You must accept the terms and conditions!.</span>
+        </div>
+
+        <button type="submit" class="btn">Login</button>
+    </form>
+</div>

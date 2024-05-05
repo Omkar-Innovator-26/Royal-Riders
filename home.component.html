@@ -1,0 +1,31 @@
+<div *ngFor="let section of lstofHome">
+        <h2>{{section.title}}</h2>
+        <P>{{section.Description}}</P>
+
+        <ngb-carousel *ngIf="section.images && section.images.length > 0">
+                <ng-template ngbSlide *ngFor="let image of section.images">
+                        <img [src]="image" class="d-block w-100" alt="Slide">
+                </ng-template>
+        </ngb-carousel>
+
+        <ul>
+                <li *ngFor="let point of section.points">{{point}}</li>
+        </ul>
+
+        <table *ngIf="section.events">
+                <thead>
+                        <tr>
+                                <th>Event Name:</th>
+                                <th>Location:</th>
+                                <th>Date:</th>
+                        </tr>
+                </thead>
+                <tbody>
+                        <tr *ngFor="let event of section.events">
+                                <td>{{event.name}}</td>
+                                <td>{{event.location}}</td>
+                                <td>{{event.date}}</td>
+                        </tr>
+                </tbody>
+        </table>
+</div>

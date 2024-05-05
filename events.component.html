@@ -1,0 +1,17 @@
+<table *ngIf="lstofEvents.length>0" border="1px" cellspacing="0px" cellpadding="2px" width="100%">
+            <tr>
+                <th>Name of Location</th>
+                <th>Event Id</th>
+                <th>Date of Location For Event</th>
+                <th>Status From</th>
+                <th>Status End</th>
+            </tr>
+
+            <tr *ngFor="let eve of lstofEvents">
+                <td>{{eve.NameofLocation | uppercase}}</td>
+                <td>{{eve.EventId}}</td>
+                <td>{{eve.DateoftheEvent | date:'longDate'}}</td>
+                <td>{{eve.StatusFrom}}</td>
+                <td>{{eve.EndOn}}</td>
+            </tr>
+</table>

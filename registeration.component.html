@@ -1,0 +1,77 @@
+<div class="container">
+    <h2>Registeration Form</h2>
+    
+    <form (ngSubmit)="handleSubmit()" [formGroup]="RegisterationForm">
+            <div class="form-group">
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName"   formControlName="firstName"  placeholder="Enter your First Name here">
+                <span class="error-message" *ngIf="methodOfFirstName.errors?.required">First Name is Required</span>
+            </div>
+
+            <div class="form-group">
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" name="lastName"  formControlName="lastName" placeholder="Enter your Last Name here">
+                <span class="error-message" *ngIf="methodOfLastName.errors?.required">Last Name is Required</span>
+            </div>
+
+            <div class="form-group">
+                <label for="phoneNumber">Phone Number:</label>
+                <input type="number" id="phoneNumber" name="phonenumber"  formControlName="phonenumber" placeholder="Enter Your phoneNumber here">
+                <span class="error-message" *ngIf="methodOfPhoneNumber.errors?.required">Phone Number is mandatory to Fill!</span>
+                <span class="error-message" *ngIf="methodOfPhoneNumber.errors?.minlength">Please Enter atleast 8 numbers</span>
+                <span class="error-message" *ngIf="methodOfPhoneNumber.errors?.maxlength">You Cannot enter numbers more than 10 </span>
+                <span class="error-message" *ngIf="methodOfPhoneNumber.errors?.pattern">Enter Numbers [0-9]</span>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email"  formControlName="email" placeholder="Enter Your Email Id">
+                <span class="error-message" *ngIf="methodOfEmail.errors?.required">Please Enter your MailId</span>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password"   formControlName="password" placeholder="Enter Your Password here">
+                <span class="error-message" *ngIf="methodOfPassword.errors?.required">Please Provide the Password</span>
+                <span class="error-message" *ngIf="methodOfPassword.errors?.pattern">Enter Atleast one uppercase [A-Z] one lowercase[a-z] and one number[0-9]</span>
+            </div>
+
+            <!-- <div class="form-group">
+                    <label for="dateofbirth">Enter DOB</label>
+                    <input type="date" id="dateofbirth" name="date" formControlName="date" placeholder="Enter your DOB">
+                    <span class="error-message" *ngIf="methodOfDOB.errors?.required">Please fill DOB</span>
+            </div> -->
+
+            <div class="form-group">
+                    <label for="Username">Enter User Name:</label>
+                    <input id="Username" name="username" formControlName="username" type="text" placeholder="Enter your username">
+                    <span class="error-message" *ngIf="methodOfUserName.errors?.required">Please enter username</span>
+            </div>
+
+            <div class="form-group">
+                <label>Gender:</label>
+
+                <input type="radio" id="male"  value="male" formControlName="Male">
+                <label for="male">Male</label><br>
+                
+                <input type="radio" id="female"  value="female" formControlName="Female">
+                <label for="female">Female</label><br>
+                
+                <input type="radio" id="other"  value="other" formControlName="Other">
+                <label for="other">Other</label>
+            </div>
+
+            <div class="form-group">
+                <label for="terms">I accept the terms and conditions</label>
+                <input type="checkbox" id="terms" name="terms" formControlName="terms">
+                <span *ngIf="RegisterationForm.get('terms')?.invalid && RegisterationForm.get('terms')?.touched">Please accept the terms and conditions!.</span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Submit">
+            </div>
+
+    </form>
+</div>
+<!-- <h1>{{RegisterationForm.value | json}}</h1> -->
+
